@@ -27,6 +27,12 @@ If you are using a Karoo 2, you can use manual sideloading:
 3. Install the app by running `adb install app-release.apk`.
 4. Set up your data fields as desired.
 
+## Usage
+
+After installation, add the Notepad data field to your data pages as desired.
+Open the extension from the main menu to edit the note text.
+You can also add a button to your pages that opens the text editor.
+
 ## Credits
 
 - Icon is `notepad` by [boxicons.com](https://boxicons.com) (MIT-licensed).
