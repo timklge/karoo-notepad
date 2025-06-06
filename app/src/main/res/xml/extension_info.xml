@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExtensionInfo
+    displayName="@string/extension_name"
+    icon="@drawable/notepad"
+    id="karoo-notepad"
+    scansDevices="false">
+
+    <DataType
+        description="@string/notepad_description"
+        displayName="@string/notepad"
+        graphical="true"
+        icon="@drawable/notepad"
+        typeId="notepad" />
+
+    <DataType
+        description="@string/notepad_button_description"
+        displayName="@string/notepad_button"
+        graphical="true"
+        icon="@drawable/notepad"
+        typeId="notepadButton" />
+</ExtensionInfo>

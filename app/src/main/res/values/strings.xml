@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="extension_name">notepad</string>
+    <string name="notepad">Notepad</string>
+    <string name="notepad_description">Simple button to quickly open the notepad</string>
+    <string name="notepad_button">Notepad Buton</string>
+    <string name="notepad_button_description">Simple button to quickly open the notepad</string>
+</resources>
