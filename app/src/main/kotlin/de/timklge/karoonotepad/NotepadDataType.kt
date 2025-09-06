@@ -7,9 +7,12 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceModifier
+import androidx.glance.action.actionStartActivity
+import androidx.glance.action.clickable
 import androidx.glance.appwidget.ExperimentalGlanceRemoteViewsApi
 import androidx.glance.appwidget.GlanceRemoteViews
 import androidx.glance.color.ColorProvider
+import androidx.glance.layout.Box
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
@@ -24,7 +27,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.awaitCancellation
-import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalGlanceRemoteViewsApi::class)
@@ -47,13 +49,21 @@ class NotepadDataType(
         val viewJob = CoroutineScope(Dispatchers.IO).launch {
             context.streamPreferences().collect { notes ->
                 val result = glance.compose(context, DpSize.Unspecified) {
-                    Text(
-                        notes.firstOrNull()?.text ?: "",
-                        modifier = GlanceModifier.fillMaxSize().padding(10.dp),
-                        style = TextStyle(
-                            color = ColorProvider(Color.Black, Color.White),
-                            fontSize = 20.sp)
-                    )
+                    val modifier = GlanceModifier.fillMaxSize()
+
+                    Box(
+                        modifier = if (config.preview) modifier else modifier.clickable(
+                            actionStartActivity<MainActivity>()
+                        )
+                    ) {
+                        Text(
+                            notes.firstOrNull()?.text ?: "",
+                            modifier = GlanceModifier.fillMaxSize().padding(10.dp),
+                            style = TextStyle(
+                                color = ColorProvider(Color.Black, Color.White),
+                                fontSize = 20.sp)
+                        )
+                    }
                 }
 
                 emitter.updateView(result.remoteViews)

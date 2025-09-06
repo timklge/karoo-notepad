@@ -73,7 +73,7 @@ tasks.register("generateManifest") {
             "latestVersionCode" to android.defaultConfig.versionCode,
             "developer" to "github.com/timklge",
             "description" to "Open-source extension that provides a simple notepad",
-            "releaseNotes" to "* Fix notepad description",
+            "releaseNotes" to "* Also open notepad editing activity when clicking on the text datafield",
             "screenshotUrls" to listOf(
                 "$baseUrl/menu.png",
                 "$baseUrl/profile.png",
